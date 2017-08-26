@@ -7,7 +7,7 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
     public int maxEnemies = 5;
-    private int numEnemies;
+    public static int numEnemies;
 
     void Start ()
     {
