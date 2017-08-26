@@ -153,6 +153,11 @@
     <Compile Include="Assets\Cinemachine\Blackboard\Editor\ReactorEditor.cs" />
     <Compile Include="Assets\Cinemachine\PostFX\Editor\PostFXAutoImport.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\Editor\CinemachineShotEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshComponentsGUIUtility.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshLinkEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshModifierVolumeEditor.cs" />
+    <Compile Include="Assets\NavMeshComponents\Editor\NavMeshSurfaceEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Cinemachine\license.txt" />
