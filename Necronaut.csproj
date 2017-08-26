@@ -78,7 +78,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Project\Scripts\DestroyCollidingEnemy.cs" />
+    <Compile Include="Assets\_Project\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\_Project\Scripts\EnemyMove.cs" />
+    <Compile Include="Assets\_Project\Scripts\MovingBird.cs" />
     <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\AgentLinkMover.cs" />
     <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\ClickToMove.cs" />
     <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\DestroyOnTrigger.cs" />
@@ -106,7 +109,6 @@
     <Compile Include="Assets\SS\Scripts\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\SS\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\SS\Scripts\Enemy\EnemyMovement.cs" />
-    <Compile Include="Assets\SS\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\SS\Scripts\Managers\GameOverManager.cs" />
     <Compile Include="Assets\SS\Scripts\Managers\PauseManager.cs" />
     <Compile Include="Assets\SS\Scripts\Managers\ScoreManager.cs" />
