@@ -713,6 +713,10 @@ MonoBehaviour:
   verSpeed: 4
   minHeight: 0.1
   maxHeight: 2
+  minAngle: -45
+  maxAngle: 45
+  twistSpeed: 2
+  maxTwistTime: 1
 --- !u!195 &1700567621
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -750,7 +754,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1889388378
 MonoBehaviour:
   m_ObjectHideFlags: 0

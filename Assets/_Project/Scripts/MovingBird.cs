@@ -19,15 +19,20 @@ public class MovingBird : MonoBehaviour {
     private Transform player;
     private float height;
     private Transform body;
-    private Vector3 angle;
-    private Vector3 tmpAngle;
+    
+    private Vector3 tmpAngle, startAngle;
     private float lastTwistTime = 0;
+    private float lastTime = 0;
+   
+    
+    private Vector3 goalAngle = new Vector3 (0,0,0);
 
 	// Use this for initialization
 	void Start () {
         tmpPos = transform.position;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         body = transform.GetChild(0);
+        startAngle = transform.eulerAngles;
 
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
 	}
@@ -35,6 +40,7 @@ public class MovingBird : MonoBehaviour {
     private void Update()
     {
         nav.SetDestination(player.position);
+        body.localEulerAngles = Vector3.Lerp(body.localEulerAngles, goalAngle, Time.deltaTime * twistSpeed);
     }
 
     void FixedUpdate()
@@ -49,11 +55,14 @@ public class MovingBird : MonoBehaviour {
         tmpPos.y = height;
         body.position = tmpPos;
 
-        //if (Time.deltaTime > lastTwistTime)
-        //{
-        //    // randomly rotate body every twistTime
-        //    angle = body.eulerAngles;
-        //    angle.x = Random.Range(0, 1);
-        //}
+
+        if (Time.time  - lastTwistTime >  maxTwistTime && goalAngle.x-startAngle.x < 0.01f)
+        {
+            //Debug.Log("goal angle == " + goalAngle);
+            // randomly rotate body every twistTime
+            goalAngle = body.localEulerAngles;
+            goalAngle.y = Random.Range(minAngle, maxAngle);
+            lastTwistTime = Time.time;
+        }
     }
 }
