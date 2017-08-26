@@ -9,6 +9,8 @@ public class ShotBehavior : MonoBehaviour
 
     public string target;
 
+    public int damage = 30;
+
 
 	// Use this for initialization
 	void Start ()
@@ -30,7 +32,8 @@ public class ShotBehavior : MonoBehaviour
     {
         if (other.CompareTag(target))
         {
-            //hurt the target
+            Health targethealth = other.GetComponent<Health>();
+            targethealth.DamageHealth(damage);
             Destroy(this.gameObject);
         }
         else if (other.CompareTag("Ground"))

@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
         _currentHealth = _maxHealth;
 	}
 	
-	void DamageHealth(float n)
+	public void DamageHealth(float n)
     {
         _currentHealth -= n;
 
