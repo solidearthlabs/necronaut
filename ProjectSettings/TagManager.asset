@@ -5,6 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Laser
+  - Missile
+  - WeaponCamera
+  - Manager
+  - metal
+  - pickupAble
+  - Explosion
+  - Bird
   layers:
   - Default
   - TransparentFX

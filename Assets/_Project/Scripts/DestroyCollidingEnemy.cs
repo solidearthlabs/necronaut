@@ -1,14 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
-public class DestroyCollidingObject : MonoBehaviour {
+public class DestroyCollidingEnemy : MonoBehaviour {
+    //private EnemyManager em
+    private void Start()
+    {
+
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Enemy")
         {
             Destroy(other.gameObject);
-            EnemyManager.numEnemies--;
+            //enemyManagers.select 
+            //    .numEnemies--;
         }
     }
 }
