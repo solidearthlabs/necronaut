@@ -1,0 +1,10 @@
+*.meta
+*~
+SS/
+Ground_textures_pack/
+!Ground_textures_pack/Dry ground
+!Ground_textures_pack/Grass & rocks
+Temp
+Library
+
+
