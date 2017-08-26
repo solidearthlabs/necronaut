@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{182FA8B0-D210-FE8F-FFD3-06CBA1F97DC1}</ProjectGuid>
+    <ProjectGuid>{F4B1CE73-D8F0-1DD8-9AE3-D5F1A3AFA23F}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -55,11 +55,23 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
@@ -70,52 +82,48 @@
     <Reference Include="UnityEngine.Timeline">
       <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEditor.HoloLens.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Project\Scripts\DestroyCollidingEnemy.cs" />
-    <Compile Include="Assets\_Project\Scripts\EnemyManager.cs" />
-    <Compile Include="Assets\_Project\Scripts\EnemyMove.cs" />
-    <Compile Include="Assets\_Project\Scripts\MovingBird.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\AgentLinkMover.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\ClickToMove.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\DestroyOnTrigger.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\DungeonManager.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\EnableIffSleeping.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\FreeCam.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\LocalNavMeshBuilder.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\MeshTool.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\NavMeshPrefabInstance.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\NavMeshSourceTag.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\Oscillator.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\RandomInstancing.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\RandomWalk.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Examples\Scripts\SpawnPrefabOnKeyDown.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\NavMeshComponents\Scripts\NavMeshLink.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\NavMeshComponents\Scripts\NavMeshModifier.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\NavMeshComponents\Scripts\NavMeshSurface.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Tests\NavMeshSurfaceAgentTests.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Tests\NavMeshSurfaceLinkTests.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Tests\NavMeshSurfaceModifierTests.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Tests\NavMeshSurfaceModifierVolumeTests.cs" />
-    <Compile Include="Assets\NavMeshComponents\Assets\Tests\NavMeshSurfaceTests.cs" />
-    <Compile Include="Assets\SS\Scripts\Camera\CameraFollow.cs" />
-    <Compile Include="Assets\SS\Scripts\Enemy\EnemyAttack.cs" />
-    <Compile Include="Assets\SS\Scripts\Enemy\EnemyHealth.cs" />
-    <Compile Include="Assets\SS\Scripts\Enemy\EnemyMovement.cs" />
-    <Compile Include="Assets\SS\Scripts\Managers\GameOverManager.cs" />
-    <Compile Include="Assets\SS\Scripts\Managers\PauseManager.cs" />
-    <Compile Include="Assets\SS\Scripts\Managers\ScoreManager.cs" />
-    <Compile Include="Assets\SS\Scripts\Managers\UpdateValue.cs" />
-    <Compile Include="Assets\SS\Scripts\Player\PlayerHealth.cs" />
-    <Compile Include="Assets\SS\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\SS\Scripts\Player\PlayerShooting.cs" />
+    <ProjectReference Include="Necronaut.csproj">
+      <Project>{182FA8B0-D210-FE8F-FFD3-06CBA1F97DC1}</Project>
+      <Name>Necronaut</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Plugins\Editor\TransformCopier.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\NavMeshComponents\ProjectSettings\ProjectVersion.txt" />
