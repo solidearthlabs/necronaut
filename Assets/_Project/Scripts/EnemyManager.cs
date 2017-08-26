@@ -12,6 +12,16 @@ public class EnemyManager : MonoBehaviour
     void Start ()
     {
         numEnemies = 0;
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            GameObject[] gObjects = GameObject.FindGameObjectsWithTag("Respawn");
+            for (int i = 0; i < gObjects.Length; i++)
+            {
+                spawnPoints[i] = gObjects[i].transform;
+            }
+        }
+        if (spawnPoints == null || spawnPoints.Length == 0)
+            Debug.LogError("Cannot find any spawnpoints!!");
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
