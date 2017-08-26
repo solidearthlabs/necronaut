@@ -1,4 +1,4 @@
-*.meta
+#*.meta
 *~
 SS/
 Ground_textures_pack/
