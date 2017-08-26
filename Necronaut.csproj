@@ -84,6 +84,7 @@
     <Compile Include="Assets\_Project\Joseph\Scripts\Health.cs" />
     <Compile Include="Assets\_Project\Joseph\Scripts\MouseLook.cs" />
     <Compile Include="Assets\_Project\Joseph\Scripts\ShotBehavior.cs" />
+    <Compile Include="Assets\_Project\Scripts\CubeManager.cs" />
     <Compile Include="Assets\_Project\Scripts\DestroyCollidingEnemy.cs" />
     <Compile Include="Assets\_Project\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\_Project\Scripts\EnemyMove.cs" />
@@ -128,7 +129,6 @@
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineMixer.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineShot.cs" />
     <Compile Include="Assets\Cinemachine\Timeline\CinemachineTrack.cs" />
-    <Compile Include="Assets\CubeManager.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\AgentLinkMover.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\ClickToMove.cs" />
     <Compile Include="Assets\NavMeshComponents\Scripts\DestroyOnTrigger.cs" />
