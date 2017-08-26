@@ -14,6 +14,7 @@ TagManager:
   - Explosion
   - Bird
   - Ground
+  - FloorCube
   layers:
   - Default
   - TransparentFX

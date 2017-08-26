@@ -54,9 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1390008915098154, guid: 71a988d7128aaf140b3e25ed13f3da09, type: 2}
   spawnTime: 3
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
   maxEnemies: 10
 --- !u!114 &114991033074079422
 MonoBehaviour:
@@ -71,7 +69,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1062653942581172, guid: bb224b0817ef9d642873b3e66f068923, type: 2}
   spawnTime: 3
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
   maxEnemies: 10

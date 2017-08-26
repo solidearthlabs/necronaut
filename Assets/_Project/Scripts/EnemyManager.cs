@@ -1,28 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
 //    public Health health;
     public GameObject enemy;
     public float spawnTime = 3f;
-    public Transform[] spawnPoints;
+    public float spawnTimeOffset = 0;
+    public List<GameObject> spawnPoints = new List<GameObject>();
     public int maxEnemies = 5;
     public static int numEnemies;
+    public string respawnTag = "Respawn";
+    public bool continuousSpawn = true;
 
     void Start ()
     {
         numEnemies = 0;
-        if (spawnPoints == null || spawnPoints.Length == 0)
+        if (spawnPoints.Count == 0)
         {
-            GameObject[] gObjects = GameObject.FindGameObjectsWithTag("Respawn");
-            for (int i = 0; i < gObjects.Length; i++)
-            {
-                spawnPoints[i] = gObjects[i].transform;
-            }
+            spawnPoints = GameObject.FindGameObjectsWithTag(respawnTag).ToList();
         }
-        if (spawnPoints == null || spawnPoints.Length == 0)
+        if (spawnPoints.Count == 0)
             Debug.LogError("Cannot find any spawnpoints!!");
-        InvokeRepeating ("Spawn", spawnTime, spawnTime);
+
+        if (continuousSpawn)
+            InvokeRepeating("Spawn", spawnTime+spawnTimeOffset, spawnTime);
+        else
+            Invoke("Spawn",spawnTime+spawnTimeOffset);
     }
 
 
@@ -33,10 +38,10 @@ public class EnemyManager : MonoBehaviour
         //    return;
         //}
         
-        int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+        int spawnPointIndex = Random.Range (0, spawnPoints.Count);
         if (numEnemies < maxEnemies)
         {
-            Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+            Instantiate(enemy, spawnPoints[spawnPointIndex].transform.position, spawnPoints[spawnPointIndex].transform.rotation);
             numEnemies++;
         }
     }
