@@ -33,7 +33,10 @@ public class ShotBehavior : MonoBehaviour
         if (other.CompareTag(target))
         {
             Health targethealth = other.GetComponent<Health>();
-            targethealth.DamageHealth(damage);
+            if (targethealth)
+            {
+                targethealth.DamageHealth(damage);
+            }
             Destroy(this.gameObject);
         }
         else if (other.CompareTag("Ground"))
