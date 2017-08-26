@@ -4,8 +4,8 @@ using System.Collections;
 public class EnemyMove : MonoBehaviour
 {
     Transform player;
-    PlayerHealth playerHealth;
-    EnemyHealth enemyHealth;
+    Health playerHealth;
+    Health enemyHealth;
     UnityEngine.AI.NavMeshAgent nav;
 
 
