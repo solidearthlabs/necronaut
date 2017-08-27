@@ -44,12 +44,12 @@ public class BossAttackController : MonoBehaviour
     {
         public GameObject obj;
         public AttackStyle attackStyle;
-        public Quaternion aimDirection;
+        public Vector3 aimDirection;
         public GameObject targetObj;
         public float velocity;
         public float creationTime = Time.fixedTime;
         public float bulletListIndex;
-        public Bullet(GameObject go, AttackStyle style, Quaternion dir, GameObject targ, float startingVelocity)
+        public Bullet(GameObject go, AttackStyle style, Vector3 dir, GameObject targ, float startingVelocity)
         {
             obj = go;
             attackStyle = style;
@@ -85,7 +85,8 @@ public class BossAttackController : MonoBehaviour
             }
 
             // Aim bullet in player's direction.
-            aimDirection = Quaternion.LookRotation(player.transform.position);
+            //aimDirection = Quaternion.LookRotation(player.transform.position);
+            
             yield return new WaitForSeconds(timeBetweenFiring);
             if (attackStyle == AttackStyle.fire)
             {
@@ -104,10 +105,11 @@ public class BossAttackController : MonoBehaviour
         //Vector3 offset = transform.localPosition + transform.forward * aimDir;
         float offset = transform.localScale.x / 1.9f;  // instantiate just outside of the boss boundary
 
+        Vector3 direction = player.transform.position - transform.position;
         Vector3 bulletStartPos = transform.localPosition + transform.localScale / 2;
-        GameObject bulletGO = Instantiate(bulletPrefab, bulletStartPos, aimDir);
-        Debug.LogFormat("Instantiated boss bullet at location {0} in direction {1} (boss location is {2}, localRotation is {3})", bulletStartPos, aimDir.eulerAngles,transform.position,transform.localPosition);
-        Bullet bullet = new Bullet(bulletGO, attackStyle, aimDir, target, startVelocity);
+        GameObject bulletGO = Instantiate(bulletPrefab, bulletStartPos, Quaternion.LookRotation(direction));
+        Debug.LogFormat("Instantiated boss bullet at location {0} in direction {1} (boss location is {2})", bulletStartPos, direction,transform.position);
+        Bullet bullet = new Bullet(bulletGO, attackStyle, direction, target, startVelocity);
         bullets.Add(bullet);
     }
     // Update is called once per frame
@@ -116,7 +118,7 @@ public class BossAttackController : MonoBehaviour
         bullets.RemoveAll(b => b.obj == null); // bullet must have been destroyed from a collision
         foreach (var bullet in bullets)
         {
-            if (bullet.obj != null) { 
+            if (bullet.obj != null) {
                 // already in ShotBehavior.cs attached to the bullet prefab
                 //if (Time.time - bullet.creationTime > bulletSurvivalTime)
                 //{
@@ -125,7 +127,10 @@ public class BossAttackController : MonoBehaviour
                 //    Debug.Log("Destroyed boss bullet");
                 //}
                 // Move the projectile forward towards the player's last known direction;
+                var diff = bullet.obj.transform.position;
                 bullet.obj.transform.position += bullet.obj.transform.forward * bulletSpeed * Time.deltaTime;
+                diff -= bullet.obj.transform.position;
+                Debug.LogFormat("bullet position = {0} (diff {1})", bullet.obj.transform.position, diff);
             }
         }
     }
