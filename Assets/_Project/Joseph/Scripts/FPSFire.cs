@@ -26,6 +26,9 @@ public class FPSFire : MonoBehaviour
     public int ammocost = 0;
     public Slider ammobar;
 
+    public ParticleSystem muzzleFlash;
+    public ParticleSystem muzzleSmoke;
+
 
 
     //apply to bullet iself
@@ -58,6 +61,7 @@ public class FPSFire : MonoBehaviour
 
         if (Input.GetMouseButton(0) && cooldown == 0 && ammobar.value > 0)
         {
+
             if (chargePercent >= windupReq)
             {
                 cooldown = heat;
@@ -79,7 +83,8 @@ public class FPSFire : MonoBehaviour
                     bulletProps.lifeTime = lifetime;
                     bulletProps.damage = damage;
                     bulletProps.piercing = piercing;
-
+                    muzzleFlash.Play();
+                    muzzleSmoke.Play();
 
                 }
 
@@ -94,6 +99,10 @@ public class FPSFire : MonoBehaviour
         else if (chargePercent > 0)
         {
             chargePercent--;
+            if (muzzleFlash.isPlaying)
+            { muzzleFlash.Stop(); }
+            if (muzzleSmoke.isPlaying)
+            { muzzleSmoke.Stop(); }
         }
             
 
