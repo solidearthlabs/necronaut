@@ -9,7 +9,7 @@ public class SceneCheating : MonoBehaviour
 
     public Transform curtains;
 
-    private Vector3 closed = new Vector3(0, 0, 0);
+    private Vector3 closed;
     public int slides;
     public int limit;
 
@@ -17,7 +17,7 @@ public class SceneCheating : MonoBehaviour
 
     void Start()
     {
-
+        closed = curtains.position;
     } 
 
     void Update ()
