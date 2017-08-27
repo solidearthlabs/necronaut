@@ -24,7 +24,7 @@ public class ShotBehavior : MonoBehaviour
 	void Update ()
     {
         lifeTime--;
-        if (lifeTime == 0)
+        if (lifeTime <= 0)
         {
             Destroy(this.gameObject);
         }
