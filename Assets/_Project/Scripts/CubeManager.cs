@@ -9,7 +9,7 @@ public class CubeManager : MonoBehaviour {
     public int minCubes = 5;
     public Animation animation;
     
-    private List<GameObject> floorCubes = new List<GameObject>();
+    public List<GameObject> floorCubes = new List<GameObject>();
     int index;
     
     // Use this for initialization
@@ -21,8 +21,38 @@ public class CubeManager : MonoBehaviour {
             Invoke("DestroyRandomCube", destroyTime);
 
     }
-    
-    IEnumerator ContinousDestroy()
+
+    public IEnumerator TimedRandomDestroy(float swTime)
+    {
+        float startTime = Time.fixedTime;
+        while (Time.fixedTime - startTime < swTime )
+        {
+            if (floorCubes == null || floorCubes.Count <= minCubes)
+                break;
+            else
+                StartCoroutine(DestroyRandomCube());
+            yield return new WaitForSeconds(destroyTime);
+        }
+    }
+
+    /// <summary>
+    /// Sort cubes starting from one end (on horizontal axis)
+    /// and cause lines of every other cube to rumble
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator ShockWave()
+    {
+        float timeBetweenWaves = 1;
+
+        // sort by x position
+        foreach (var cube in floorCubes.OrderBy(c => c.transform.position.x).ToList())
+        {
+            Debug.LogFormat("cube x,y,z {0}", cube.transform.position);
+        }
+        yield return new WaitForSeconds(timeBetweenWaves);
+    }
+
+    public IEnumerator ContinousDestroy()
     {
         bool done = false;
         while (!done)
@@ -35,7 +65,7 @@ public class CubeManager : MonoBehaviour {
         }
     }
 
-    IEnumerator DestroyRandomCube() {
+    public IEnumerator DestroyRandomCube() {
         index = Random.Range(0, floorCubes.Count-1);
 
         //Animator animator = floorCubes[index].AddComponent<Animator>();

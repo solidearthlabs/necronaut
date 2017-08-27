@@ -101,9 +101,16 @@ public class BossAttackController : MonoBehaviour
             //aimDirection = Quaternion.LookRotation(player.transform.position);
             
             yield return new WaitForSeconds(timeBetweenFiring);
-            if (attackStyle == AttackStyle.fire)
+            switch (attackStyle)
             {
-                fireBullet(player);
+                case AttackStyle.fire:
+                    fireBullet(player);
+                    break;
+                case AttackStyle.shockwave:
+                    cubeManager.ShockWave();
+                    break;
+                default:
+                    break;
             }
         }
     }
