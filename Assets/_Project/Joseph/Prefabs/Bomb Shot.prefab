@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23168015808883748}
   - component: {fileID: 54446497180697132}
   - component: {fileID: 114888681635047746}
+  - component: {fileID: 114336570023029524}
   m_Layer: 0
   m_Name: Bomb Shot
   m_TagString: Untagged
@@ -98,6 +99,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &114336570023029524
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1220353405170146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b95ad40684c8b4468b54dea1b3e91f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 1372663176878500, guid: 24129f3d413c8c44bb42067f336c0289, type: 2}
 --- !u!114 &114888681635047746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,6 +125,7 @@ MonoBehaviour:
   lifeTime: 120
   target: Enemy
   damage: 30
+  piercing: 0
 --- !u!135 &135312870703529368
 SphereCollider:
   m_ObjectHideFlags: 1
