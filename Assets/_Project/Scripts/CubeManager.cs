@@ -8,7 +8,7 @@ public class CubeManager : MonoBehaviour {
     public float destroyTime = 3;
     public int minCubes = 5;
     public Animation animation;
-
+    
     private List<GameObject> floorCubes = new List<GameObject>();
     int index;
     
