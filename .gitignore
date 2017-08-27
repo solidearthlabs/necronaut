@@ -17,3 +17,6 @@ Necronaut.Editor.csproj
 .vs/Necronaut/v14/.suo
 .suo
 AmplifyShaderEditor/
+Necronaut.Editor.Plugins.csproj
+Necronaut.Plugins.csproj
+Necronaut.sln
