@@ -9,7 +9,7 @@ public class BossAttackController : MonoBehaviour {
     /// <summary>
     /// Holds each of the bullets: (GameObject, AttackStyle, aimDirection)
     /// </summary>
-    public static List<BulletClass> bullets = new List<BulletClass>();
+    public static List<Bullet> bullets = new List<Bullet>();
     public float timeBetweenFiring = 3f;
     public float timeUntilStart = 10f;
     public float timeBetweenAttackChange = 15f;
@@ -29,7 +29,8 @@ public class BossAttackController : MonoBehaviour {
     //apply to bullet iself
     public float size = 1; //currently does nothing
     public float fireForce = 1000;
-    public float fireSpeed = 0.2f;
+    public float bulletSpeed = 0.2f;
+    public float startVelocity = 10;
 
     private Quaternion aimDirection;
     private GameObject player;
@@ -38,16 +39,20 @@ public class BossAttackController : MonoBehaviour {
     /// <summary>
     ///  Implements a bullet game object class.
     /// </summary>
-    public class BulletClass {
+    public class Bullet {
         public GameObject obj;
         public AttackStyle attackStyle;
         public Quaternion aimDirection;
+        public GameObject targetObj;
+        public float velocity;
 
-        public BulletClass (GameObject go, AttackStyle style, Quaternion dir)
+        public Bullet (GameObject go, AttackStyle style, Quaternion dir, GameObject targ, float startingVelocity)
         {
             obj = go;
             attackStyle = style;
             aimDirection = dir;
+            targetObj = targ;
+            velocity = startingVelocity;
         }
     }
 
@@ -79,20 +84,30 @@ public class BossAttackController : MonoBehaviour {
             yield return new WaitForSeconds(timeBetweenFiring);
             if (attackStyle == AttackStyle.fire)
             {
-                fireBullet(aimDirection);
+                fireBullet(aimDirection,player);
             }
         }
     }
 
-    void fireBullet(Quaternion aimDir)
+    /// <summary>
+    /// Instantiates a new bullet from the bulletPrefab and adds to the bullets list
+    /// </summary>
+    /// <param name="aimDir"></param>
+    /// <param name="target"></param>
+    void fireBullet(Quaternion aimDir,GameObject target)
     {
-        bullets.Add(Instantiate(bulletPrefab))
+        GameObject bulletGO = Instantiate(bulletPrefab,transform.position,aimDir);
+        Bullet bullet = new Bullet(bulletGO, attackStyle, aimDir,target, startVelocity);
+        bullets.Add(bullet);
     }
         // Update is called once per frame
     void Update()
     {
+        foreach (var bullet in bullets)
+        {
             // Move the projectile forward towards the player's last known direction;
-            transform.position += transform.forward * fireSpeed * Time.deltaTime;
+            bullet.obj.transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+        }
     }
     //playerDir = transform.position
 
