@@ -79,15 +79,15 @@ public class BossAttackController : MonoBehaviour {
             yield return new WaitForSeconds(timeBetweenFiring);
             if (attackStyle == AttackStyle.fire)
             {
-                fireBullet(aimDirection);
+                //fireBullet(aimDirection);
             }
         }
     }
 
-    void fireBullet(Quaternion aimDir)
-    {
-        bullets.Add(Instantiate(bulletPrefab))
-    }
+   // void fireBullet(Quaternion aimDir)
+   // {
+   //     bullets.Add(Instantiate(bulletPrefab));
+   // }
         // Update is called once per frame
     void Update()
     {
