@@ -9,12 +9,17 @@ public class Health : MonoBehaviour
     public float _currentHealth;
 
     public Slider healthBar;
+
+    public bool IsABoss = false;
+
+    private NextLevel next;
     
 
 	// Use this for initialization
 	void Awake ()
     {
         _currentHealth = _maxHealth;
+        next = GetComponent<NextLevel>();
 	}
 	
 	public void DamageHealth(float n)
@@ -27,6 +32,10 @@ public class Health : MonoBehaviour
         }
         else if (_currentHealth <= 0)
         {
+            if (IsABoss && next != null)
+            {
+                next.Proceed();
+            }
             Destroy(this.gameObject);
         }
 

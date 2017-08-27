@@ -24,9 +24,10 @@ GameObject:
   - component: {fileID: 23396903145361398}
   - component: {fileID: 114359939438707972}
   - component: {fileID: 114903858452321904}
+  - component: {fileID: 114239222631258128}
   m_Layer: 0
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,13 +38,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713821766616926}
-  m_LocalRotation: {x: 0.038175747, y: 0.59927523, z: 0.050836086, w: 0.7980147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.54, y: 5.73, z: 8.88}
   m_LocalScale: {x: 8, y: 8, z: 8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 73.81, z: 7.29}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23396903145361398
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,6 +84,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713821766616926}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114239222631258128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713821766616926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0182d0010f9e6974d970d2cee7530432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1269416806492058, guid: 1427dbd315af00b44bae59f6bf4b84dd,
+    type: 2}
+  timeBetweenFiring: 3
+  timeUntilStart: 3
+  timeBetweenAttackChange: 15
+  attackStyle: 0
+  bulletNumber: 1
+  inaccuracy: 0
+  heat: 30
+  cooldown: 0
+  chargePercent: 0
+  windupReq: 60
+  size: 1
+  fireForce: 1000
+  bulletSpeed: 100
+  startVelocity: 1000
 --- !u!114 &114359939438707972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 1000
   _currentHealth: 1000
+  healthBar: {fileID: 0}
 --- !u!135 &135340364550574740
 SphereCollider:
   m_ObjectHideFlags: 1

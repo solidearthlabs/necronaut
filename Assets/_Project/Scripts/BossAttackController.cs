@@ -30,8 +30,8 @@ public class BossAttackController : MonoBehaviour
     //apply to bullet iself
     public float size = 1; //currently does nothing
     public float fireForce = 1000;
-    public float bulletSpeed = 0.2f;
-    public float startVelocity = 10;
+    public float bulletSpeed = 100f;
+    public float startVelocity = 1000;
 
     private Quaternion aimDirection;
     private GameObject player;
