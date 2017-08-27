@@ -855,14 +855,21 @@ MonoBehaviour:
   - {fileID: 1220353405170146, guid: 449b19bd1bb76854aa6d4522f875f31e, type: 2}
   shot: {fileID: 1115785898552750, guid: 66309ae571ae67844921971d6fcf2099, type: 2}
   bSty: 0
-  bulletNumber: 25
+  bulletNumber: 1
   inaccuracy: 0.25
   heat: 2
   cooldown: 0
   chargePercent: 0
   windupReq: 60
+  ammo: 100
+  ammocap: 100
+  ammocost: 0
+  ammobar: {fileID: 114044702390368862}
   size: 1
   fireForce: 3000
+  damage: 0
+  lifetime: 0
+  piercing: 0
 --- !u!114 &114320007761719164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -964,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 100
+  healthBar: {fileID: 0}
 --- !u!114 &114543090304716774
 MonoBehaviour:
   m_ObjectHideFlags: 1

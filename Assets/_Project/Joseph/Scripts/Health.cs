@@ -30,7 +30,12 @@ public class Health : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        healthBar.value = _currentHealth / _maxHealth;
+
+        if (healthBar != null)
+        {
+            healthBar.value = _currentHealth / _maxHealth;
+        }
+        
 
     }
 
