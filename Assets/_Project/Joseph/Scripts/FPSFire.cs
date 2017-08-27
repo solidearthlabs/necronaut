@@ -217,13 +217,13 @@ public class FPSFire : MonoBehaviour
                 }
             case 7:
                 {
-                    bSty = bulletStyle.laser;
-                    bulletNumber = 1;
-                    inaccuracy = 0;
+                    bSty = bulletStyle.fire;
+                    bulletNumber = 20;
+                    inaccuracy = 1;
                     heat = 30;
                     windupReq = 0;
                     size = 1;
-                    fireForce = 1000;
+                    fireForce = 2000;
                     lifetime = 60;
                     damage = 50;
                     piercing = true;
