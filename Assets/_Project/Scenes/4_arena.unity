@@ -4547,6 +4547,11 @@ Prefab:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 114903858452321904, guid: 1a0b614f7a4d87a4285a43cf240e412c,
+        type: 2}
+      propertyPath: IsABoss
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
   m_IsPrefabParent: 0
@@ -6820,6 +6825,18 @@ MonoBehaviour:
   size: 1
   fireForce: 1000
   bulletSpeed: 0.1
+--- !u!114 &2073287453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073287444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df67d416362197d40826aef5f5a023a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  next: 3
 --- !u!1 &2107512435
 GameObject:
   m_ObjectHideFlags: 0

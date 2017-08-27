@@ -12,7 +12,9 @@ public class Health : MonoBehaviour
 
     public bool IsABoss = false;
 
-    private NextLevel next;
+    public NextLevel next;
+
+    public GameObject explosion;
     
 
 	// Use this for initialization
@@ -34,9 +36,11 @@ public class Health : MonoBehaviour
         {
             if (IsABoss && next != null)
             {
-                next.Proceed();
+                Instantiate(explosion, transform.position, transform.rotation);
+
+
+                Invoke("Proceed", 5);
             }
-            Destroy(this.gameObject);
         }
 
 
@@ -46,6 +50,11 @@ public class Health : MonoBehaviour
         }
         
 
+    }
+
+    void Proceed()
+    {
+        next.Proceed();
     }
 
 

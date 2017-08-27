@@ -21,7 +21,7 @@ public class NextLevel : MonoBehaviour {
 
     public void Proceed()
     {
-        SceneManager.LoadScene(next);
+            SceneManager.LoadScene(next);
     }
 
     public void Leave()
