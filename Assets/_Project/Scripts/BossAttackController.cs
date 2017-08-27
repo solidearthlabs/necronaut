@@ -8,18 +8,19 @@ public class BossAttackController : MonoBehaviour
     public GameObject bulletPrefab;
 
 
-    public enum AttackStyle { fire, shockwave}
+    public enum AttackStyle { fire, multishot, shockwave}
     //public enum AttackStyle { fire, blob, swarm, lightning, shockwave, bomb }
     /// <summary>
     /// Holds each of the bullets: (GameObject, AttackStyle, aimDirection)
     /// </summary>
     public static List<Bullet> bullets = new List<Bullet>();
-    public float bulletSpeed = 0.5f;
-    public float timeBetweenFiring = 5f;
-    public float timeUntilStart = 10f;
-    public float timeBetweenAttackChange = 15f;
+    public float bulletSpeed = 10;
+    public float timeBetweenFiring = 3;
+    public float timeUntilStart = 3;
+    public float timeBetweenAttackChange = 10f;
     public AttackStyle attackStyle = AttackStyle.fire;
-    public float aimAccuracy = 3f;  // aim is off by up to this amount on either side of the player
+    public float aimAccuracy = 10f;  // aim is off by up to this amount on either side of the player
+    public int multiShotBulletNum = 3;
 
     //apply to gun
     // TODO: add other attack styles
@@ -106,6 +107,10 @@ public class BossAttackController : MonoBehaviour
                 case AttackStyle.fire:
                     fireBullet(player);
                     break;
+                case AttackStyle.multishot:
+                    for (int i = 0; i < multiShotBulletNum; i++)
+                        fireBullet(player);
+                    break;
                 case AttackStyle.shockwave:
                     cubeManager.ShockWave();
                     break;
@@ -166,7 +171,7 @@ public class BossAttackController : MonoBehaviour
 
                 // TODO: optimize this 
                 var diff = bullet.obj.transform.position;
-                bullet.obj.transform.position += bullet.obj.transform.forward * (bulletSpeed * 0.1f) * Time.deltaTime;
+                bullet.obj.transform.position += bullet.obj.transform.forward * (bulletSpeed) * Time.deltaTime;
                 diff -= bullet.obj.transform.position;
 
                 if (debug)

@@ -1200,7 +1200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &393638110
 Transform:
   m_ObjectHideFlags: 0
@@ -4553,7 +4553,8 @@ Prefab:
       propertyPath: IsABoss
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114239222631258128, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1569991708
@@ -6813,12 +6814,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1269416806492058, guid: 1427dbd315af00b44bae59f6bf4b84dd,
     type: 2}
-  bulletSpeed: 0.1
+  bulletSpeed: 10
   timeBetweenFiring: 3
   timeUntilStart: 3
   timeBetweenAttackChange: 15
-  attackStyle: 0
+  attackStyle: 1
   aimAccuracy: 10
+  multiShotBulletNum: 3
 --- !u!114 &2073287453
 MonoBehaviour:
   m_ObjectHideFlags: 0
