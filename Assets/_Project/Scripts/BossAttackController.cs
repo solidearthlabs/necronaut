@@ -101,21 +101,22 @@ public class BossAttackController : MonoBehaviour
     /// <param name="target"></param>
     void fireBullet(Quaternion aimDir, GameObject target)
     {
-        GameObject bulletGO = Instantiate(bulletPrefab, transform.position, aimDir);
+        //Vector3 offset = transform.localPosition + transform.forward * aimDir;
+        float offset = transform.localScale.x / 1.9f;  // instantiate just outside of the boss boundary
+
+        Vector3 bulletStartPos = transform.localPosition + transform.localScale / 2;
+        GameObject bulletGO = Instantiate(bulletPrefab, bulletStartPos, aimDir);
+        Debug.LogFormat("Instantiated boss bullet at location {0} in direction {1} (boss location is {2}, localRotation is {3})", bulletStartPos, aimDir.eulerAngles,transform.position,transform.localPosition);
         Bullet bullet = new Bullet(bulletGO, attackStyle, aimDir, target, startVelocity);
         bullets.Add(bullet);
     }
     // Update is called once per frame
     void Update()
     {
+        bullets.RemoveAll(b => b.obj == null); // bullet must have been destroyed from a collision
         foreach (var bullet in bullets)
         {
-            if (bullet.obj == null)
-            {
-                bullets.RemoveAll(b => b.obj == null); // bullet must have been destroyed from a collision
-            }
-            else
-            {
+            if (bullet.obj != null) { 
                 // already in ShotBehavior.cs attached to the bullet prefab
                 //if (Time.time - bullet.creationTime > bulletSurvivalTime)
                 //{
