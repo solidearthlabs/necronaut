@@ -78,6 +78,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\_Project\Joseph\Cards\Cards.cs" />
     <Compile Include="Assets\_Project\Joseph\Scripts\FPSCamera.cs" />
     <Compile Include="Assets\_Project\Joseph\Scripts\FPSFire.cs" />
     <Compile Include="Assets\_Project\Joseph\Scripts\FPSMove.cs" />
