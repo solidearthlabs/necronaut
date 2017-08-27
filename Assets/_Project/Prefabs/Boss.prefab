@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 33001739888774868}
   - component: {fileID: 135340364550574740}
   - component: {fileID: 23396903145361398}
+  - component: {fileID: 114359939438707972}
+  - component: {fileID: 114903858452321904}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -81,6 +83,38 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713821766616926}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114359939438707972
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713821766616926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3b932d45f8f1042b049bca12ee301f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xDirMovement: 10
+  yDirMovement: 3
+  zDirMovement: 10
+  maxOffset: {x: 10, y: 2, z: 10}
+  targetResetTime: 10
+  horSpeed: 0.1
+  vertSpeed: 0.1
+  distThreshold: 1
+--- !u!114 &114903858452321904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713821766616926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd273d6ad651614ca4d804b2883e33a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 1000
+  _currentHealth: 1000
 --- !u!135 &135340364550574740
 SphereCollider:
   m_ObjectHideFlags: 1
