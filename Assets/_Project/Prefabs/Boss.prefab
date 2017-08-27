@@ -110,7 +110,6 @@ MonoBehaviour:
   size: 1
   fireForce: 1000
   bulletSpeed: 100
-  startVelocity: 1000
 --- !u!114 &114359939438707972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,6 +143,8 @@ MonoBehaviour:
   _maxHealth: 1000
   _currentHealth: 1000
   healthBar: {fileID: 0}
+  IsABoss: 0
+  explosion: {fileID: 1501344228988738, guid: 13b85a7857bc1a448b63e9ccdaf96300, type: 2}
 --- !u!135 &135340364550574740
 SphereCollider:
   m_ObjectHideFlags: 1
