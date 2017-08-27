@@ -246,15 +246,10 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114023111059089418, guid: eb770210a98d5e447a381c99d66be4ec,
+    - target: {fileID: 114301164022204598, guid: eb770210a98d5e447a381c99d66be4ec,
         type: 2}
-      propertyPath: selectedCard
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 224949685633127020, guid: eb770210a98d5e447a381c99d66be4ec,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -63.6
+      propertyPath: bulletNumber
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb770210a98d5e447a381c99d66be4ec, type: 2}
