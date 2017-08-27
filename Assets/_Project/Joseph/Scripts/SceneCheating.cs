@@ -22,7 +22,7 @@ public class SceneCheating : MonoBehaviour
 
     void Update ()
     {
-        curtains.position = new Vector3(curtains.position.x, curtains.position.y - 1, curtains.position.z);
+        curtains.position = new Vector3(curtains.position.x, curtains.position.y - 2, curtains.position.z);
 
         if (curtains.position.y <= -600 && slides < limit)
         {
@@ -30,9 +30,10 @@ public class SceneCheating : MonoBehaviour
             curtains.position = closed;
             movieStar.position = new Vector3(movieStar.position.x - 1000, movieStar.position.y, movieStar.position.z);
         }
-        else if (slides == limit)
+        else if (curtains.position.y <= -600 && slides >= limit)
         {
-            //stop
+            NextLevel Ready = GetComponent<NextLevel>();
+            Ready.Proceed();
         }
     }
 }
