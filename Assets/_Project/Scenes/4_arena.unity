@@ -6799,6 +6799,19 @@ GameObject:
   m_PrefabParentObject: {fileID: 1713821766616926, guid: 1a0b614f7a4d87a4285a43cf240e412c,
     type: 2}
   m_PrefabInternal: {fileID: 1535323674}
+--- !u!114 &2073287445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2073287444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7054eede2d1f69c4bbf6c6667300e53a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 3
+  attackDamage: 30
 --- !u!114 &2073287451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6812,10 +6825,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1269416806492058, guid: 1427dbd315af00b44bae59f6bf4b84dd,
     type: 2}
+  bulletSpeed: 0.05
   timeBetweenFiring: 3
   timeUntilStart: 3
   timeBetweenAttackChange: 15
   attackStyle: 0
+<<<<<<< HEAD
   bulletNumber: 1
   inaccuracy: 0
   heat: 30
@@ -6837,6 +6852,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   next: 3
+=======
+  aimAccuracy: 3
+>>>>>>> 288ce9c72d929de7a6b53bc2942e8c169b948825
 --- !u!1 &2107512435
 GameObject:
   m_ObjectHideFlags: 0
