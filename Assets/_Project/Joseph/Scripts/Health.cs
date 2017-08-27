@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float _maxHealth;
     public float _currentHealth;
+
+    public Slider healthBar;
     
 
 	// Use this for initialization
@@ -26,6 +29,8 @@ public class Health : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        healthBar.value = _currentHealth / _maxHealth;
 
     }
 

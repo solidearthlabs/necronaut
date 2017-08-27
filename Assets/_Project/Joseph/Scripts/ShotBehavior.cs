@@ -11,6 +11,8 @@ public class ShotBehavior : MonoBehaviour
 
     public int damage = 30;
 
+    public bool piercing = false;
+
 
 	// Use this for initialization
 	void Start ()
@@ -37,9 +39,13 @@ public class ShotBehavior : MonoBehaviour
             {
                 targethealth.DamageHealth(damage);
             }
-            Destroy(this.gameObject);
+
+            if (!piercing)
+            {
+                Destroy(this.gameObject);
+            }
         }
-        else if (other.CompareTag("Ground"))
+        else if (other.CompareTag("Ground") && !piercing)
         {
             Destroy(this.gameObject);
         }

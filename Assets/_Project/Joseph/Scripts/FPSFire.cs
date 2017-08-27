@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FPSFire : MonoBehaviour
 {
@@ -20,11 +21,20 @@ public class FPSFire : MonoBehaviour
     public int windupReq = 60;
 
 
+    public int ammo = 100;
+    public int ammocap = 100;
+    public int ammocost = 0;
+    public Slider ammobar;
+
+
 
     //apply to bullet iself
 
     public float size = 1; //currently does nothing
     public float fireForce = 1000;
+    public int damage;
+    public int lifetime;
+    public bool piercing;
 
     //
 
@@ -34,6 +44,8 @@ public class FPSFire : MonoBehaviour
     void Start ()
     {
         GunChange(0);
+        ammobar.maxValue = ammocap;
+        ammobar.value = ammo;
     }
 	
 	// Update is called once per frame
@@ -44,13 +56,14 @@ public class FPSFire : MonoBehaviour
             cooldown--;
         }
 
-        if (Input.GetMouseButton(0) && cooldown == 0)
+        if (Input.GetMouseButton(0) && cooldown == 0 && ammobar.value > 0)
         {
             if (chargePercent >= windupReq)
             {
                 cooldown = heat;
-                            
 
+                ammo -= ammocost;
+                ammobar.value -= ammocost;
 
 
 
@@ -60,7 +73,16 @@ public class FPSFire : MonoBehaviour
                     Quaternion inacc = Quaternion.Euler(inaccurate);
                     GameObject bullet = Instantiate(shot, transform.position, transform.rotation * inacc) as GameObject;
                     bullet.GetComponent<Rigidbody>().AddForce((transform.forward + inaccurate) * fireForce);
+                    bullet.GetComponent<Transform>().localScale *= size;
+                    ShotBehavior bulletProps = bullet.GetComponent<ShotBehavior>();
+
+                    bulletProps.lifeTime = lifetime;
+                    bulletProps.damage = damage;
+                    bulletProps.piercing = piercing;
+
+
                 }
+
             }
             else
             {
@@ -82,7 +104,8 @@ public class FPSFire : MonoBehaviour
 
     public void GunChange(int card)
     {
-
+        ammo = 100;
+        ammobar.value = ammo;
 
         switch (card) //Update gun stats here
         {
@@ -95,6 +118,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 1;
                     fireForce = 1000;
+                    lifetime = 60;
+                    damage = 10;
+                    piercing = false;
+                    ammocost = 0;
                     break;
                 }
             case 1:
@@ -104,8 +131,12 @@ public class FPSFire : MonoBehaviour
                     inaccuracy = 0;
                     heat = 100;
                     windupReq = 0;
-                    size = 3;
+                    size = 5;
                     fireForce = 1200;
+                    lifetime = 120;
+                    damage = 100;
+                    piercing = true;
+                    ammocost = 5;
                     break;
                 }
             case 2:
@@ -117,6 +148,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 0.5f;
                     fireForce = 200;
+                    lifetime = 20;
+                    damage = 10;
+                    piercing = false;
+                    ammocost = 1;
                     break;
                 }
             case 3:
@@ -128,6 +163,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 1;
                     fireForce = 800;
+                    lifetime = 60;
+                    damage = 30;
+                    piercing = false;
+                    ammocost = 5;
                     break;
                 }
             case 4:
@@ -139,6 +178,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 20;
                     size = 0.5f;
                     fireForce = 2500;
+                    lifetime = 60;
+                    damage = 2;
+                    piercing = true;
+                    ammocost = 1;
                     break;
                 }
             case 5:
@@ -150,6 +193,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 1;
                     fireForce = 1000;
+                    lifetime = 30;
+                    damage = 20;
+                    piercing = false;
+                    ammocost = 5;
                     break;
                 }
             case 6:
@@ -162,6 +209,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 2;
                     fireForce = 1000;
+                    lifetime = 120;
+                    damage = 75;
+                    piercing = false;
+                    ammocost = 5;
                     break;
                 }
             case 7:
@@ -173,6 +224,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 0;
                     size = 1;
                     fireForce = 1000;
+                    lifetime = 60;
+                    damage = 50;
+                    piercing = true;
+                    ammocost = 25;
                     break;
                 }
             case 8:
@@ -184,6 +239,10 @@ public class FPSFire : MonoBehaviour
                     windupReq = 60;
                     size = 1;
                     fireForce = 3000;
+                    lifetime = 60;
+                    damage = 15;
+                    piercing = true;
+                    ammocost = 1;
                     break;
                 }
 
