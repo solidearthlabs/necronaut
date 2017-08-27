@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114138795408860788}
   m_Layer: 0
   m_Name: Boss Fire Shot
-  m_TagString: Untagged
+  m_TagString: BossBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,8 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 20
-  target: Enemy
-  damage: 30
+  target: Player
+  damage: 10
 --- !u!135 &135116514292680676
 SphereCollider:
   m_ObjectHideFlags: 1

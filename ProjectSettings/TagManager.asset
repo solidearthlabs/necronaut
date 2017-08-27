@@ -15,6 +15,7 @@ TagManager:
   - Bird
   - Ground
   - FloorCube
+  - BossBullet
   layers:
   - Default
   - TransparentFX

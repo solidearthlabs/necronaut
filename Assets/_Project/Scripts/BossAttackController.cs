@@ -47,7 +47,8 @@ public class BossAttackController : MonoBehaviour
         public Quaternion aimDirection;
         public GameObject targetObj;
         public float velocity;
-
+        public float creationTime = Time.fixedTime;
+        public float bulletListIndex;
         public Bullet(GameObject go, AttackStyle style, Quaternion dir, GameObject targ, float startingVelocity)
         {
             obj = go;
@@ -55,6 +56,7 @@ public class BossAttackController : MonoBehaviour
             aimDirection = dir;
             targetObj = targ;
             velocity = startingVelocity;
+            bulletListIndex = bullets.Count;
         }
     }
 
@@ -108,11 +110,26 @@ public class BossAttackController : MonoBehaviour
     {
         foreach (var bullet in bullets)
         {
-            // Move the projectile forward towards the player's last known direction;
-            bullet.obj.transform.position += transform.forward * bulletSpeed * Time.deltaTime;
+            if (bullet.obj == null)
+            {
+                bullets.RemoveAll(b => b.obj == null); // bullet must have been destroyed from a collision
+            }
+            else
+            {
+                // already in ShotBehavior.cs attached to the bullet prefab
+                //if (Time.time - bullet.creationTime > bulletSurvivalTime)
+                //{
+                //    Destroy(bullet.obj);
+                //    bullets.RemoveAll(b => b.obj == null);  // remove destroyed bullet from bullet list
+                //    Debug.Log("Destroyed boss bullet");
+                //}
+                // Move the projectile forward towards the player's last known direction;
+                bullet.obj.transform.position += bullet.obj.transform.forward * bulletSpeed * Time.deltaTime;
+            }
         }
     }
     //playerDir = transform.position
+
 
 
     public void attackChange(AttackStyle attack)

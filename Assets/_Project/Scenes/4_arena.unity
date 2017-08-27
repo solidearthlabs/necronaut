@@ -874,7 +874,7 @@ GameObject:
   - component: {fileID: 245144733}
   m_Layer: 0
   m_Name: Sphere
-  m_TagString: Untagged
+  m_TagString: BossBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1177,6 +1177,10 @@ Prefab:
     - target: {fileID: 1944859314831600, guid: e4bbb0f61c8f076438ebbeb28825299b, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397794023329332, guid: e4bbb0f61c8f076438ebbeb28825299b, type: 2}
+      propertyPath: m_TagString
+      value: BossBullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4bbb0f61c8f076438ebbeb28825299b, type: 2}
@@ -4513,23 +4517,35 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0.038175747
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0.59927523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.050836086
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.7980147
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4542145350217512, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1713821766616926, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
@@ -6805,6 +6821,7 @@ MonoBehaviour:
   fireForce: 1000
   bulletSpeed: 0.2
   startVelocity: 0.2
+  bulletSurvivalTime: 5
 --- !u!1 &2107512435
 GameObject:
   m_ObjectHideFlags: 0
