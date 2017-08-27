@@ -112,6 +112,7 @@ MonoBehaviour:
   lifeTime: 60
   target: Enemy
   damage: 30
+  piercing: 0
 --- !u!135 &135973685723995340
 SphereCollider:
   m_ObjectHideFlags: 1
