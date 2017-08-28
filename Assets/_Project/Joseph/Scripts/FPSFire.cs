@@ -8,6 +8,9 @@ public class FPSFire : MonoBehaviour
     public GameObject[] shots;
     public GameObject shot;
 
+    public AudioSource audio;
+    public AudioClip[] sounds;
+
 
     //apply to gun
     public enum bulletStyle { normal=0, fire=1, laser=2, bomb=3}
@@ -46,6 +49,10 @@ public class FPSFire : MonoBehaviour
         GunChange(0);
         ammobar.maxValue = ammocap;
         ammobar.value = ammo;
+
+        audio = GetComponent<AudioSource>();
+
+        audio.clip = sounds[0];
     }
 	
 	// Update is called once per frame
@@ -79,7 +86,11 @@ public class FPSFire : MonoBehaviour
                     bulletProps.lifeTime = lifetime;
                     bulletProps.damage = damage;
                     bulletProps.piercing = piercing;
-
+                    if (!audio.isPlaying)
+                    {
+                        audio.Play();
+                    }
+                    
 
                 }
 
@@ -107,6 +118,8 @@ public class FPSFire : MonoBehaviour
         ammo = 100;
         ammobar.value = ammo;
 
+        audio.clip = sounds[card];
+
         switch (card) //Update gun stats here
         {
             case 0:
@@ -122,6 +135,7 @@ public class FPSFire : MonoBehaviour
                     damage = 10;
                     piercing = false;
                     ammocost = 0;
+                    
                     break;
                 }
             case 1:
