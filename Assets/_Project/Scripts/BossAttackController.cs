@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿//using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -95,7 +96,7 @@ public class BossAttackController : MonoBehaviour
         {
             if (Time.fixedTime - startTime > timeBetweenAttackChange)
             {
-                // TODO: implement attack change
+                SetRandomAttackStyle();
             }
 
             // Aim bullet in player's direction.
@@ -113,6 +114,7 @@ public class BossAttackController : MonoBehaviour
                     break;
                 case AttackStyle.shockwave:
                     StartCoroutine(cubeManager.ShockWave());
+                    SetRandomAttackStyle();
                     break;
                 default:
                     break;
@@ -120,6 +122,30 @@ public class BossAttackController : MonoBehaviour
         }
     }
 
+    void SetRandomAttackStyle()
+    {
+        AttackStyle currentAttack = attackStyle;
+        AttackStyle attack;
+        int numAttacks = System.Enum.GetNames(typeof(AttackStyle)).Length;
+        int count = 0;
+        while (true)
+        {
+            count++;
+            int i = Random.Range(0, numAttacks-1);
+            attack = (AttackStyle)i;
+            if (attack != currentAttack)
+            {
+                Debug.LogFormat("Changing boss attack from {0} to {1}", currentAttack, attack);
+                attackStyle = attack;
+                break;
+            }
+            if (count > 10)
+            {
+                Debug.LogError("couldn't find another attack to go to");
+                break;
+            }
+        }
+    }
     /// <summary>
     /// Instantiates a new bullet from the bulletPrefab and adds to the bullets list
     /// </summary>
