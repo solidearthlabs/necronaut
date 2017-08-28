@@ -112,7 +112,7 @@ public class BossAttackController : MonoBehaviour
                         fireBullet(player);
                     break;
                 case AttackStyle.shockwave:
-                    cubeManager.ShockWave();
+                    StartCoroutine(cubeManager.ShockWave());
                     break;
                 default:
                     break;

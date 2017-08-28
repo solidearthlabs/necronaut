@@ -1225,11 +1225,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d026e12d39d5b4d9b568e7a3ae2f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  continuousDestroy: 1
+  continuousDestroy: 0
   destroyTime: 3
   minCubes: 5
   animation: {fileID: 0}
   floorCubes: []
+  rumbleSpeed: 0.2
+  rumbleTimes: 4
+  rumbleHeight: 0.2
 --- !u!1 &403231415
 GameObject:
   m_ObjectHideFlags: 0
@@ -1927,7 +1930,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 627989627}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a1cc265d3176d154c9cf4e560dd83f93, type: 2}
   m_CullingMode: 0
@@ -4540,6 +4543,11 @@ Prefab:
         type: 2}
       propertyPath: multiShotBulletNum
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114392991722059262, guid: 1a0b614f7a4d87a4285a43cf240e412c,
+        type: 2}
+      propertyPath: attackStyle
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1a0b614f7a4d87a4285a43cf240e412c, type: 2}
