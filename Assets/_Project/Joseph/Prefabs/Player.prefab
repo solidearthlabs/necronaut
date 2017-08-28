@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _currentHealth: 100
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 114610497409275448}
   IsABoss: 0
   next: {fileID: 0}
   explosion: {fileID: 0}

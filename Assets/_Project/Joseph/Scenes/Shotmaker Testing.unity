@@ -246,9 +246,20 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114489646909514314, guid: eb770210a98d5e447a381c99d66be4ec,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1359655217}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb770210a98d5e447a381c99d66be4ec, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1359655217 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114610497409275448, guid: eb770210a98d5e447a381c99d66be4ec,
+    type: 2}
+  m_PrefabInternal: {fileID: 1359655216}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1914823215
 GameObject:
   m_ObjectHideFlags: 0
