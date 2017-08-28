@@ -100,6 +100,9 @@ public class CubeManager : MonoBehaviour {
     {
         FloorCubeDamage fcd = cubeGO.GetComponent<FloorCubeDamage>();
         fcd.isRumbling = true;
+        BoxCollider collider = cubeGO.GetComponent<BoxCollider>();
+        collider.isTrigger = true;
+
         rend = cubeGO.GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.red);
         StartCoroutine(moveCubeUpDown(cubeGO));
@@ -107,7 +110,8 @@ public class CubeManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
         rend = cubeGO.GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.black);
-        fcd.isRumbling = true;
+        fcd.isRumbling = false;
+        collider.isTrigger = false;
         yield return 0;
     }
     IEnumerator moveCubeUpDown(GameObject cubeGO)

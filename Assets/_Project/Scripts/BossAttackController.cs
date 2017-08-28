@@ -10,6 +10,10 @@ public class BossAttackController : MonoBehaviour
 
 
     public enum AttackStyle { fire, multishot, shockwave}
+    public bool enableFire = true;
+    public bool enableMultishot = true;
+    public bool enableShockwave = true;
+
     //public enum AttackStyle { fire, blob, swarm, lightning, shockwave, bomb }
     /// <summary>
     /// Holds each of the bullets: (GameObject, AttackStyle, aimDirection)
@@ -40,14 +44,14 @@ public class BossAttackController : MonoBehaviour
     //public float startVelocity = 1000;
 
     private CubeManager cubeManager;
-    private bool debug = true;
+    private bool debug = false;
     private float debugSeconds = 1;
     private float lastDebugTime = 0;
 
     //private Quaternion aimDirection;
     private GameObject player;
     private GameObject[] shots;
-
+    
     void Start()
     {
         if (bulletPrefab == null)
@@ -60,6 +64,12 @@ public class BossAttackController : MonoBehaviour
         cubeManager = GameObject.FindObjectOfType<CubeManager>();
         if (cubeManager== null)
             Debug.LogError("couldn't find cubeManager.  Must have one in the scene");
+
+        // TODO: May want to be able to disable all attack types (not sure whether want to do this check or not)
+        if (! enableFire && !enableMultishot && !enableShockwave)
+        {
+            Debug.LogError("All boss attack types have been disabled.  At least one needs to be enabled.");
+        }
 
         StartCoroutine(Attack());
     }
@@ -133,13 +143,16 @@ public class BossAttackController : MonoBehaviour
             count++;
             int i = Random.Range(0, numAttacks-1);
             attack = (AttackStyle)i;
-            if (attack != currentAttack)
+            if (attack != currentAttack && !(
+                (attack==AttackStyle.fire && !enableFire) || 
+                (attack == AttackStyle.multishot && !enableMultishot) || 
+                (attack == AttackStyle.shockwave && !enableShockwave)))
             {
                 Debug.LogFormat("Changing boss attack from {0} to {1}", currentAttack, attack);
                 attackStyle = attack;
                 break;
             }
-            if (count > 10)
+            if (count > 1000)
             {
                 Debug.LogError("couldn't find another attack to go to");
                 break;
