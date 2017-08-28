@@ -54,7 +54,7 @@ public class CubeManager : MonoBehaviour {
         foreach (var cube in floorCubes.OrderBy(c => c.transform.position.x).ToList())
         {
             StartCoroutine(RumbleCube(cube.gameObject));
-            Debug.LogFormat("cube x,y,z {0}", cube.transform.position);
+            //Debug.LogFormat("cube x,y,z {0}", cube.transform.position);
             //rend = GetComponent<Renderer>();
             //rend.material.SetColor("_Color", Color.red);
             yield return new WaitForSeconds(0.1f);
@@ -98,12 +98,16 @@ public class CubeManager : MonoBehaviour {
 
     IEnumerator RumbleCube(GameObject cubeGO)
     {
+        FloorCubeDamage fcd = cubeGO.GetComponent<FloorCubeDamage>();
+        fcd.isRumbling = true;
         rend = cubeGO.GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.red);
         StartCoroutine(moveCubeUpDown(cubeGO));
+
         yield return new WaitForSeconds(1);
         rend = cubeGO.GetComponent<Renderer>();
         rend.material.SetColor("_Color", Color.black);
+        fcd.isRumbling = true;
         yield return 0;
     }
     IEnumerator moveCubeUpDown(GameObject cubeGO)
