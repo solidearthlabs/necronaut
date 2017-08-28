@@ -117,13 +117,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 1269416806492058, guid: 1427dbd315af00b44bae59f6bf4b84dd,
     type: 2}
+  enableFire: 0
+  enableMultishot: 0
+  enableShockwave: 1
   bulletSpeed: 10
   timeBetweenFiring: 3
   timeUntilStart: 3
   timeBetweenAttackChange: 15
-  attackStyle: 1
+  attackStyle: 2
   aimAccuracy: 10
-  multiShotBulletNum: 3
+  multiShotBulletNum: 10
 --- !u!114 &114494269865065182
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df67d416362197d40826aef5f5a023a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  next: 3
+  next: 5
 --- !u!114 &114903858452321904
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efd273d6ad651614ca4d804b2883e33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 1000
-  _currentHealth: 1000
+  _maxHealth: 3000
+  _currentHealth: 3000
   healthBar: {fileID: 0}
   IsABoss: 1
   next: {fileID: 0}

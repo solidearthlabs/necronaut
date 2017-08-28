@@ -18,8 +18,14 @@ EditorBuildSettings:
     path: Assets/_Project/Joseph/Scenes/Midtro.unity
     guid: 82d85a32ff4165e4791f9542e299d7e2
   - enabled: 1
+    path: Assets/_Project/Scenes/5_green_floor 1.unity
+    guid: 3712e9b18886c6b4aab8e4932bdbd4d3
+  - enabled: 1
     path: Assets/_Project/Joseph/Scenes/Lastro.unity
     guid: d824d979bc24ab441b605f57ea510743
+  - enabled: 1
+    path: Assets/_Project/Scenes/5_green_floor 2.unity
+    guid: 7e04f8f71e16e38468f02421e07afd95
   - enabled: 1
     path: Assets/_Project/Joseph/Scenes/Ending.unity
     guid: 013c7a53f2a1f2347913c1f031c10c0c
