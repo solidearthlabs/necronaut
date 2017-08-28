@@ -23,5 +23,5 @@ Necronaut.sln
 Assets/AmplifyShaderEditor.meta
 Assets/_Project/Scripts/BossAttackController-save.cs
 *.delme
-/DELME*
+DELME*
 *.delme.meta
