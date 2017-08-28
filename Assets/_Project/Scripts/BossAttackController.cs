@@ -141,8 +141,11 @@ public class BossAttackController : MonoBehaviour
         while (true)
         {
             count++;
-            int i = Random.Range(0, numAttacks-1);
+            
+            int i = Random.Range(0, numAttacks);
+            
             attack = (AttackStyle)i;
+            //Debug.LogFormat("changeAttack: numAttack=={0}, i =={1}, attack==", numAttacks, i, attack.ToString());
             if (attack != currentAttack && !(
                 (attack==AttackStyle.fire && !enableFire) || 
                 (attack == AttackStyle.multishot && !enableMultishot) || 
@@ -152,7 +155,7 @@ public class BossAttackController : MonoBehaviour
                 attackStyle = attack;
                 break;
             }
-            if (count > 1000)
+            if (count > 100)
             {
                 Debug.LogError("couldn't find another attack to go to");
                 break;
